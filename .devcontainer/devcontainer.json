@@ -1,0 +1,7 @@
+{
+    "name": "NeoVim dev container for javascript and typescript on node",
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "devcontainer",
+    "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}"
+}
+
