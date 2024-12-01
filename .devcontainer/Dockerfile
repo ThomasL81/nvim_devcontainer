@@ -1,8 +1,8 @@
-FROM mcr.microsoft.com/devcontainers/base:alpine 
+FROM mcr.microsoft.com/devcontainers/base:alpine
 
 RUN \
   apk update && apk add --update nodejs npm neovim && \
-  npm i -g yarn typescript ts-node mbt @sap/cds-dk
+  npm i -g yarn typescript ts-node mbt @sap/cds-dk pnpm
 
 USER vscode
 
