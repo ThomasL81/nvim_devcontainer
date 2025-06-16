@@ -1,14 +1,19 @@
+version: '3.8'
 services:
   devcontainer:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    #    image: ghcr.io/devcontainers/templates/alpine:3.2.2 
+    image: mcr.microsoft.com/devcontainers/typescript-node
     volumes:
       - ../..:/workspaces:cached
     network_mode: service:db
     command: sleep infinity
-
+# devcontainer:
+#   build:
+#     context: .
+#     dockerfile: Dockerfile
+#   volumes:
+#     - ../..:/workspaces:cached
+#   network_mode: service:db
+#   command: sleep infinity
   db:
     image: postgres:latest
     restart: unless-stopped
