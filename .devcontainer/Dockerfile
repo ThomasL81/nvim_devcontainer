@@ -1,13 +1,28 @@
-FROM mcr.microsoft.com/devcontainers/base:alpine
+version: '3.8'
+services:
+  devcontainer:
+    image: mcr.microsoft.com/devcontainers/typescript-node
+    volumes:
+      - ../..:/workspaces:cached
+    network_mode: service:db
+    command: sleep infinity
+# devcontainer:
+#   build:
+#     context: .
+#     dockerfile: Dockerfile
+#   volumes:
+#     - ../..:/workspaces:cached
+#   network_mode: service:db
+#   command: sleep infinity
+  db:
+    image: postgres:latest
+    restart: unless-stopped
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_DB: postgres
 
-RUN \
-  apk update && apk add --update nodejs npm neovim && \
-  npm i -g yarn typescript ts-node mbt @sap/cds-dk pnpm
-
-USER vscode
-
-RUN \
-  mkdir -p ~/.config && \
-  cd ~/.config && \
-  git clone https://github.com/ThomasL81/my-nvim-config nvim && \
-  nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+volumes:
+  postgres-data:
