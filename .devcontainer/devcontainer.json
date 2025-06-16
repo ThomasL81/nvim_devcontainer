@@ -5,6 +5,9 @@
     "features": {
         "ghcr.io/duduribeiro/devcontainer-features/neovim:1": {
             "version": "stable"
+        },
+        "ghcr.io/devcontainers/features/node:1": {
+            "version": "stable"
         }
     },
     "updateContentCommand" : "/bin/bash -ex ./.devcontainer/scripts/update_content_command.sh"

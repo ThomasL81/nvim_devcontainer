@@ -1,7 +1,6 @@
-version: '3.8'
 services:
   devcontainer:
-    image: mcr.microsoft.com/devcontainers/typescript-node
+    image: mcr.microsoft.com/devcontainers/javascript-node
     volumes:
       - ../..:/workspaces:cached
     network_mode: service:db
