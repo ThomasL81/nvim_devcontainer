@@ -7,5 +7,5 @@
             "version": "stable"
         }
     },
-    "updateContentCommand" : "git clone https://github.com/ThomasL81/my-nvim-config.git ~/.config/nvim"
+    "updateContentCommand" : "/bin/bash -ex ./.devcontainer/scripts/update_content_command.sh"
 }
